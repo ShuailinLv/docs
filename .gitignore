@@ -1,0 +1,5 @@
+*.aux
+*.log
+*.aux
+latex_source/*.out
+latex_source/*.gz

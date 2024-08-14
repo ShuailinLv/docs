@@ -22,22 +22,35 @@
 % 表格字体设置
 \usepackage{etoolbox}
 
+% 导入titlecaps宏包
+\usepackage{titlecaps}
+
+
+
+
+% 自定义命令将标题首字母大写，其他单词小写
+\Addlcwords{a an the of and in on at to with by for from}
+\newcommand{\capitalizeTitle}[1]{\titlecap{#1}}
+
+% 设置标题格式
 \usepackage{titlesec}
-\usepackage{xstring}  % 引入xstring包来处理字符串
-
-% 定义一个命令，将字符串的第一个字母大写，其他字母小写
-\newcommand{\capitalize}[1]{%
-  \StrLeft{#1}{1}[\FirstLetter]%
-  \StrGobbleLeft{#1}{1}[\Rest]%
-  \uppercase{\FirstLetter}\Rest%
-}
-
 \titleformat{\section}
-  {\normalfont\Large\bfseries}{\thesection}{1em}{\capitalize}
+  {\normalfont\Large\bfseries}
+  {\thesection}{1em}{\capitalizeTitle}
+
 \titleformat{\subsection}
-  {\normalfont\large\bfseries}{\thesubsection}{1em}{\capitalize}
+  {\normalfont\large\bfseries}
+  {\thesubsection}{1em}{\capitalizeTitle}
+
 \titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{\capitalize}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsubsection}{1em}{\capitalizeTitle}
+
+
+
+
+
+
 
 
 
@@ -61,9 +74,65 @@
 
 
 \section{大模型相关技术}
+
 \subsection{superalignment}
+
+
+\subsubsection{A Bayesian Approach for Policy Learning from Trajectory Preference Queries, }
+
 \subsubsection{Deep reinforcement learning from human preferences,  2023}
-todo
+
+
+
+
+
+
+
+
+
+
+
+这篇题为《从人类偏好中学习的深度强化学习》的论文探讨了通过引入人类反馈来改进强化学习（RL），以在没有预定义奖励函数的情况下优化学习过程。以下是论文的详细解读：
+
+\noindent\textbf{a. 引言}
+\begin{itemize}
+    \item \textbf{问题陈述}：传统的强化学习依赖明确的奖励函数来实现目标。然而，在许多实际场景中，这样的奖励函数往往非常复杂、不明确，或难以制定。这限制了强化学习在这些领域中的应用。
+    \item \textbf{解决方案}：论文提出通过使用人类的偏好来定义强化学习代理的目标。通过收集人类对不同结果（轨迹片段）的比较反馈，RL系统可以学习优化符合人类偏好的行为。
+\end{itemize}
+
+\noindent\textbf{b. 方法论}
+\begin{itemize}
+    \item \textbf{从人类反馈中学习}：该方法并不是直接使用奖励信号，而是基于人类偏好学习奖励函数。人类被要求比较代理行为的短视频片段，然后这些比较结果用于训练奖励预测模型。
+    \item \textbf{策略优化}：一旦从人类偏好中估计出奖励函数，就可以使用传统的RL算法（如优势演员-评论家算法(A2C)和信任区域策略优化(TRPO)）来优化策略。
+    \item \textbf{偏好获取}：人类监督者会看到代理行为的短片段，并被要求指出他们更喜欢哪个片段。这些偏好随后用于更新奖励函数。
+    \item \textbf{选择查询}：该方法通过关注那些对正确偏好存在高度不确定性的轨迹片段来选择人类反馈，从而减少所需的比较数量。
+\end{itemize}
+
+\noindent\textbf{c. 实验结果}
+\begin{itemize}
+    \item \textbf{领域}：实验在两个领域中进行：Atari游戏和使用MuJoCo的模拟机器人任务。任务的复杂性各不相同，展示了该方法在不同环境中的有效性。
+    \item \textbf{性能}：该方法能够以最少的人类反馈解决大部分RL任务。在某些情况下，代理的表现与使用显式奖励函数训练的代理相当，甚至超过后者。
+    \item \textbf{新行为}：该方法成功地训练代理执行新颖的复杂行为，如模拟机器人中的后空翻，这些行为如果使用传统的奖励函数来指定是非常困难的。
+\end{itemize}
+
+\noindent\textbf{d. 讨论与结论}
+\begin{itemize}
+    \item \textbf{可扩展性}：研究表明，人类反馈可以扩展到复杂的RL任务，使其在实际应用中变得可行。
+    \item \textbf{效率}：这种方法显著减少了所需的人类反馈数量，达到几个数量级的减少，使其更具经济性。
+    \item \textbf{未来工作}：作者建议进一步提高从人类偏好中学习的效率，并扩大该方法可以解决的任务范围。
+\end{itemize}
+
+\noindent\textbf{e. 附录}
+\begin{itemize}
+    \item \textbf{实验细节}：附录提供了实验设置的技术细节，包括使用的具体算法、超参数以及提供人类反馈的承包商所接受的指令。
+\end{itemize}
+
+
+
+
+
+
+
 
 \subsubsection{Reward learning from human preferences and demonstrations in Atari, 2018}
 
@@ -139,6 +208,7 @@ todo
 todo
 
 \subsection{openai papers}
+
 \subsubsection{ GPT系列-Improving Language Understanding by Generative Pre-Training, gpt1, 2018}
 
 \subsubsection{GPT系列-Language Models are Unsupervised Multitask Learners, gpt2, 2019}
