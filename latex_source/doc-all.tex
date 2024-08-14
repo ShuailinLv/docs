@@ -1,0 +1,285 @@
+\documentclass[twocolumn, 10pt]{article} % 全局字体大小设为12pt
+
+% 导入 ctex 包以支持中文
+\usepackage[UTF8]{ctex}
+
+% 设置页面边距
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
+
+% 其他常用包
+\usepackage{graphicx}   % 插入图片
+\usepackage{amsmath}    % 数学公式
+\usepackage{amssymb}    % 数学符号
+\usepackage{hyperref}   % 超链接
+\usepackage{enumitem}   % 引入 enumitem 包用于自定义列表
+\usepackage{array} % 提供表格增强功能
+\usepackage{stfloats} % 支持双栏排版中的浮动对象
+
+
+\usepackage{xcolor} % 用于设置文本和背景颜色
+\usepackage{times} % 设置全局字体为 Times New Roman，或者根据需求选择其他字体
+% 表格字体设置
+\usepackage{etoolbox}
+
+\usepackage{titlesec}
+\usepackage{xstring}  % 引入xstring包来处理字符串
+
+% 定义一个命令，将字符串的第一个字母大写，其他字母小写
+\newcommand{\capitalize}[1]{%
+  \StrLeft{#1}{1}[\FirstLetter]%
+  \StrGobbleLeft{#1}{1}[\Rest]%
+  \uppercase{\FirstLetter}\Rest%
+}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{\capitalize}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{\capitalize}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{\capitalize}
+
+
+
+\AtBeginEnvironment{tabular}{\small} % 将表格内字体设为比正文小1号
+
+
+% 定义浅黄色
+\definecolor{lightyellow}{rgb}{1.0, 1.0, 0.88}
+
+\begin{document}
+
+% 标题
+\title{知识点总结}
+\author{作者姓名}
+\date{\today}
+\maketitle
+% 摘要
+\begin{abstract}
+    模型加速; 大模型; 语音; 图像; 多目标跟踪等。
+\end{abstract}
+
+
+\section{大模型相关技术}
+\subsection{superalignment}
+\subsubsection{Deep reinforcement learning from human preferences,  2023}
+todo
+
+\subsubsection{Reward learning from human preferences and demonstrations in Atari, 2018}
+
+
+\subsubsection{Align before fuse: vision and language representation learning with momentum dstillation, 2021}
+todo
+
+\subsubsection{Fine-Grained Semantically Aligned Vision-Language Pre-Training, 2022}
+
+
+\subsubsection{Scaling Up Visual and Vision-Language Representation Learning With Noisy Text Supervision, 2021}
+
+\subsubsection{PyramidCLIP: Hierarchical Feature Alignment for Vision-language Model Pretraining, 2022}
+
+
+\subsubsection{FLAVA: A Foundational Language And Vision Alignment Model, 2022}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{RLHF}
+\subsubsection{Fine-Tuning Language Models from Human Preference, 2017}
+todo
+
+
+\subsubsection{Learning to Summarize with Human Feedback, 2020}
+todo
+
+
+\subsection{幻觉抑制}
+\subsubsection{Faithful and Controllable Summarization, 2020}
+todo
+
+\subsubsection{Reducing Transformer Depth on Demand with Structured Dropout, 2020}
+todo
+
+
+\subsection{RAG}
+\subsubsection{REALM: Retrieval-Augmented Language Model Pre-Training, 2020}
+todo
+\subsubsection{RAG: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks, 2020}
+todo
+
+
+\subsection{推理加速}
+\subsubsection{Knowledge Distillation: A Survey, 2021}
+todo 
+
+\subsubsection{LayerDrop: Structured Dropout with Conditional Computation, 2019}
+todo 
+
+\subsection{模型压缩与量化}
+
+\subsubsection{Distilling the Knowledge in a Neural Network, 2015}
+todo 
+
+
+\subsubsection{Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding, 2016}
+todo 
+
+
+\subsection{多模态}
+\subsubsection{ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks}
+todo
+\subsubsection{Multimodal Transformers: Vision-and-Language Pretraining with Limited Data, 2020}
+todo
+
+\subsection{openai papers}
+\subsubsection{ GPT系列-Improving Language Understanding by Generative Pre-Training, gpt1, 2018}
+
+\subsubsection{GPT系列-Language Models are Unsupervised Multitask Learners, gpt2, 2019}
+
+\subsubsection{GPT系列-Language Models are Few-Shot Learners, gpt3, 2020}
+
+
+\subsubsection{DALL·E系列Zero-Shot Text-to-Image Generation, DALLE, 2021}
+
+\subsubsection{DALL·E系列Hierarchical Text-Conditional Image Generation with CLIP Latents, DALLE2, 2022}
+
+\subsubsection{CLIP-Learning Transferable Visual Models From Natural Language Supervision, 2021}
+
+
+\subsubsection{Reinforcement Learning系列-Playing Atari with Deep Reinforcement Learning, 2013}
+
+
+\subsubsection{Reinforcement Learning系列-Learning Dexterous In-Hand Manipulation, 2018}
+
+
+\subsubsection{Reinforcement Learning系列-OpenAI Five, 2019}
+
+
+\subsubsection{安全性与对齐-Aligning Superhuman AI with Human Intentions: A Bayesian Approach" (Irving et al, 2019}
+
+\subsubsection{安全性与对齐-AI Safety via Debate, 2019}
+
+
+
+\subsubsection{AI Policy与影响力-AI and Compute" (Amodei  Hernandez, 2018)}
+
+
+
+\section{模型加速}
+\subsection{Rethinking the Value of Network Prunin, ICLR, 2019}
+
+\subsubsection{创新点}
+
+\begin{itemize}[left=2em] % 控制缩进
+    \item \textbf{创新点1}：论文质疑传统的剪枝方法是否真有必要，尤其是在对网络进行结构化剪枝时，直接训练一个小模型的效果可能并不比传统方法差。
+
+    \item \textbf{创新点2}：大模型中的重要权重在剪枝后的小模型中可能并不关键，剪枝后的架构本身更为重要。
+
+    \item \textbf{创新点3}：结构化剪枝不仅用于压缩模型，也可视为一种发现高效网络架构的方式。关于结构化剪枝的介绍见表\ref{tab:pruning_comparison}
+\end{itemize}
+
+% 双栏排版中的宽表格
+\begin{table*}[h!]
+    \centering
+    \begin{tabular}{|m{4cm}|m{6cm}|m{6cm}|}
+        \hline
+        \textbf{特性} & \textbf{结构化剪枝（Structured Pruning）} & \textbf{非结构化剪枝（Unstructured Pruning）} \\ \hline
+        剪枝对象 & 层、卷积核、通道、子网络 & 个别权重或连接 \\ \hline
+        结构保留 & 保持网络整体结构 & 破坏网络结构 \\ \hline
+        硬件加速 & 易于硬件加速 & 硬件加速困难 \\ \hline
+        适用场景 & 实际部署与推理场景 & 主要用于研究或需要极高压缩率的场景 \\ \hline
+        稀疏性 & 保持一定的结构性 & 非结构化、稀疏性更高 \\ \hline
+        剪枝后的复杂度控制 & 通过删除较大的结构块来减少复杂度 & 精细控制复杂度，通过个别权重调整 \\ \hline
+    \end{tabular}
+    \caption{结构化剪枝与非结构化剪枝的对比}
+    \label{tab:pruning_comparison}
+\end{table*}
+
+\subsection{Neural Network Pruning with Residual-Connections and Limited-Data, CVPR, 2020}
+\subsubsection{创新点}
+\begin{itemize}[left=2em] % 控制缩进
+    \item \textbf{剪枝残差连接}：传统的剪枝方法往往仅剪除残差块内部的通道，而保留输出通道不变。论文提出同时剪枝残差块内部和外部的通道，形成类似“钱包”形状的网络结构。这种结构比传统的“沙漏”形结构更有效，在相同的计算量下能够实现更高的精度和更快的推理速度。
+    \item \textbf{有限数据集的剪枝}：剪枝后的模型通常需要在大量数据上进行微调，以恢复其性能。然而，当可用数据集较小时，微调的效果可能不理想，导致模型性能下降。为解决这一问题，论文提出通过数据扩展和知识蒸馏（knowledge distillation）技术，结合标签精炼方法，来提高小数据集上剪枝模型的精度。
+\end{itemize}
+
+\subsubsection{有限数据集剪枝的策略}
+\paragraph{(1) 数据扩展}
+\begin{itemize}[left=2em] % 控制缩进
+    \item \textbf{数据扩展}：通过对现有数据进行各种变换（如旋转、平移、缩放、翻转、颜色调整等）来生成更多的训练样本。这种方法可以在一定程度上增加数据的多样性，缓解数据不足的问题。
+    \item \textbf{增强数据集的代表性}：通过生成不同变体的数据样本，数据扩展可以帮助模型更好地泛化，从而在有限数据的情况下提高模型性能。
+\end{itemize}
+
+
+\paragraph{(2) 知识蒸馏} 
+\begin{itemize}[left=2em] % 控制缩进
+    \item \textbf{教师-学生模型}：知识蒸馏是一种训练技术，其中一个较大或更复杂的“教师模型”被用来指导一个较小或剪枝后的“学生模型”。教师模型可以提供“软标签”（即概率分布，而不是硬标签），这有助于学生模型在有限数据集上的训练。
+    \item \textbf{蒸馏损失}：学生模型不仅学习数据集中的硬标签（即标准分类标签），还学习从教师模型输出的软标签。这种方法通过补充信息，帮助学生模型在有限数据集上更好地学习。
+\end{itemize}
+
+
+\noindent
+\colorbox{lightyellow}{
+知识蒸馏的基本原理
+}
+
+\noindent
+\colorbox{lightgray}{
+\begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}% 设置minipage的宽度为当前栏宽
+        \raggedright % 使内容左对齐
+
+(a) 训练\textbf{教师模型}; (b) 教师模型会对训练数据生成\textbf{软标签}, 这些概率分布不仅包含了正确类别的高概率，还包括其他类别的低概率。这些软标签可以捕捉到样本之间更细微的关系; (c) 将教师模型生成的软标签与标准的硬标签结合起来，用来训练一个较小或较简单的模型（学生模型）; (d) 分类损失 (学生模型的预测与真实标签之间的损失（通常使用交叉熵损失）) 和\textbf{蒸馏损失} (学生模型输出的概率分布与教师模型的概率分布之间的损失, 通常使用 KL 散度。); (e) 在生成教师模型的软标签时，通常会使用一个\textbf{温度参数} (temperature parameter) 来控制输出的平滑度。温度越高，输出的概率分布越平滑（即更接近均匀分布）；温度越低，概率分布越尖锐。学生模型在较高温度下学习，可以更好地理解类别之间的相对关系。
+\end{minipage}
+}
+
+
+\paragraph{(3) 标签精炼} 
+\begin{itemize}[left=2em] % 控制缩进
+    \item \textbf{噪声标签处理}：在有限数据集上，尤其是在数据扩展或知识蒸馏的过程中，可能会引入一些噪声标签。标签精炼策略通过迭代地更新这些标签，使得标签更加准确，从而提高模型的性能。
+    \item \textbf{动态更新标签}：在微调过程中，使用模型的预测来逐步调整和改进训练数据中的标签，使其更接近实际分布。
+\end{itemize}
+
+ \paragraph{(4) 结合预训练模型} 
+\begin{itemize}[left=2em] % 控制缩进
+    \item \textbf{迁移学习}：在有限数据集上进行剪枝时，通常会从一个大型数据集上预训练的模型开始（即使用预训练模型）。然后在有限的数据集上进行剪枝和微调，这样可以有效利用已有的知识，减少对数据量的依赖。
+    \item \textbf{动态更新标签}：在有限数据集上进行微调时，可以使用较小的学习率，避免模型在小数据集上发生剧烈的参数调整，从而防止过拟合。
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
