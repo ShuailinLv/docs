@@ -1,4 +1,16 @@
 *.aux
+tp*png
+tp0.png
+tp1.png
+tp2.png
+tp3.png
+tp4.png
+tp5.png
+tp6.png
+tpp.png
+tp7.png
+tp8.png
+tp.png
 *.log
 *.aux
 latex_source/*.out
